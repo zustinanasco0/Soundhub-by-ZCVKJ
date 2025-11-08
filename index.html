@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZCVKJ Soundhub - Premium Headphones</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>ZCVKJ Soundhub</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="header-actions">
+                <button id="login-btn">Login</button>
+                <div id="cart-icon" class="cart-icon">
+                    <span>🛒</span>
+                    <span id="cart-count">0</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <section id="home">
+        <h2>Welcome to ZCVKJ Soundhub</h2>
+        <p>Discover the best headphones for immersive sound experiences.</p>
+    </section>
+    
+    <section id="products">
+        <h2>Our Headphones</h2>
+        <div class="product-list">
+            <div class="product" data-name="Wireless Over-Ear" data-price="199.99">
+                <img src="https://via.placeholder.com/200x150/purple/ffffff?text=Wireless+Over-Ear" alt="Wireless Over-Ear Headphones">
+                <h3>Wireless Over-Ear Headphones</h3>
+                <p>$199.99</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product" data-name="Noise-Cancelling Earbuds" data-price="149.99">
+                <img src="https://via.placeholder.com/200x150/purple/ffffff?text=Noise-Cancelling+Earbuds" alt="Noise-Cancelling Earbuds">
+                <h3>Noise-Cancelling Earbuds</h3>
+                <p>$149.99</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product" data-name="Gaming Headset" data-price="99.99">
+                <img src="https://via.placeholder.com/200x150/purple/ffffff?text=Gaming+Headset" alt="Gaming Headset">
+                <h3>Gaming Headset</h3>
+                <p>$99.99</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+    
+    <section id="about">
+        <h2>About Us</h2>
+        <p>ZCVKJ Soundhub specializes in high-quality headphones for music lovers, gamers, and professionals.</p>
+    </section>
+    
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: info@zcvkjsoundhub.com</p>
+    </section>
+    
+    <footer>
+        <p>&copy; 2023 ZCVKJ Soundhub. All rights reserved.</p>
+    </footer>
+    
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Login</h2>
+            <form id="login-form">
+                <label for="username">Username:</label>
+                <input type="text" id="username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" required>
+                <button type="submit">Login</button>
+            </form>
+            <p id="login-status"></p>
+        </div>
+    </div>
+    
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Your Cart</h2>
+            <div id="cart-items"></div>
+            <p id="cart-total">Total: $0.00</p>
+            <button id="checkout-btn">Checkout</button>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
