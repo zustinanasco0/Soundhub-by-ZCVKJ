@@ -8,7 +8,7 @@ body {
 }
 
 header {
-    background-color: #6a0dad; 
+    background-color: #972ce4; 
     color: rgb(0, 0, 0);
     padding: 1rem;
     text-align: center;
@@ -194,4 +194,28 @@ footer {
     padding: 0.5rem;
     cursor: pointer;
     width: 100%;
+}
+
+.toast {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 8px;
+  padding: 14px;
+  position: fixed;
+  z-index: 1000;
+  left: 50%;
+  bottom: 30px;
+  font-size: 16px;
+  opacity: 0;
+  transition: opacity 0.5s, bottom 0.5s;
+}
+
+.toast.show {
+  visibility: visible;
+  opacity: 1;
+  bottom: 50px;
 }

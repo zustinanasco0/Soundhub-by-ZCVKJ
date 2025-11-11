@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Cart - ZCVKJ Soundhub</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Your Cart</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="checkout.html">Checkout</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section>
+    <div id="cart-items"></div>
+    <p id="cart-total">Total: $0.00</p>
+    <button id="checkout-btn">Go to Checkout</button>
+  </section>
+
+  <script>
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartItemsDiv = document.getElementById('cart-items');
+    const cartTotal = document.getElementById('cart-total');
+
+    function renderCart() {
+      cartItemsDiv.innerHTML = '';
+      let total = 0;
+      cart.forEach((item, index) => {
+        total += item.price;
+        const div = document.createElement('div');
+        div.classList.add('cart-item');
+        div.innerHTML = `${item.name} - $${item.price.toFixed(2)} 
+                         <span class="remove-item" data-index="${index}">🗑️</span>`;
+        cartItemsDiv.appendChild(div);
+      });
+      cartTotal.textContent = 'Total: $' + total.toFixed(2);
+    }
+
+    cartItemsDiv.addEventListener('click', e => {
+      if (e.target.classList.contains('remove-item')) {
+        const index = e.target.dataset.index;
+        cart.splice(index, 1);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        renderCart();
+      }
+    });
+
+    document.getElementById('checkout-btn').addEventListener('click', () => {
+      location.href = 'checkout.html';
+    });
+
+    renderCart();
+  </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - ZCVKJ Soundhub</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Checkout</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="cart.html">Cart</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section>
+    <h2>Enter Payment Details</h2>
+    <form id="checkout-form">
+      <label>Name on Card:</label>
+      <input type="text" required>
+      <label>Card Number:</label>
+      <input type="text" maxlength="16" required>
+      <label>Address:</label>
+      <input type="text" required>
+      <button type="submit">Confirm Payment</button>
+    </form>
+  </section>
+
+  <script>
+    document.getElementById('checkout-form').addEventListener('submit', e => {
+      e.preventDefault();
+      alert('Payment successful! Thank you for shopping with ZCVKJ Soundhub.');
+      localStorage.removeItem('cart');
+      location.href = 'index.html';
+    });
+  </script>
+</body>
+</html>
