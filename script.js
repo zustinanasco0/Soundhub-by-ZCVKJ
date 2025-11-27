@@ -68,7 +68,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const product = button.closest('.product');
       const name = product.dataset.name;
       const price = parseFloat(product.dataset.price);
-      const quantity = parseInt(product.querySelector('.quantity')?.textContent || 1);
+      const quantityElement = product.querySelector('.quantity');
+      const quantity = parseInt(quantityElement?.textContent || 1);
 
       // Check if already in cart
       const existingItem = cart.find(item => item.name === name);
@@ -82,6 +83,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
       saveCart();
       updateCartCount();
+
+      // Reset quantity to 1 after adding to cart
+      if (quantityElement) {
+        quantityElement.textContent = '1';
+      }
     });
   });
 
