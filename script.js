@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.setItem('loggedInUser', username);
       const loginStatus = document.getElementById('login-status');
       loginStatus.textContent = `Logged in as ${username}`;
-      setTimeout(() => (window.location.href = 'index.html'), 1000);
+      setTimeout(() => (window.location.href = 'homepage.html'), 1000);
     });
   }
 
@@ -165,4 +165,65 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   updateCartCount();
+});
+document.getElementById('login-form').addEventListener('submit', e => {
+    e.preventDefault();
+    const username = document.getElementById('username').value;
+    
+   
+    const statusElement = document.getElementById('login-status');
+    statusElement.textContent = 'Login successful! Welcome, ' + username + '.';
+    statusElement.style.opacity = '1';
+    
+    localStorage.setItem('loggedInUser', username);
+    
+ 
+    setTimeout(() => {
+        
+        location.href = 'homepage.html'; 
+    }, 1500); 
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const feedbackForm = document.getElementById('feedback-form');
+    const feedbackStatus = document.getElementById('feedback-status');
+
+    feedbackForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        // 1. Capture Form Data
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
+
+        // 2. Load existing feedback or initialize empty array
+        let feedbacks = JSON.parse(localStorage.getItem('feedbacks')) || [];
+        
+        // 3. Add new feedback entry
+        feedbacks.push({ 
+            name, 
+            email, 
+            subject, 
+            message, 
+            date: new Date().toISOString() 
+        });
+        
+        // 4. Save updated feedback list to local storage
+        localStorage.setItem('feedbacks', JSON.stringify(feedbacks));
+
+        // 5. Display success message
+        feedbackStatus.textContent = "Thank you for your feedback! We will get back to you soon.";
+        feedbackStatus.style.opacity = '1';
+        feedbackStatus.style.color = 'var(--success-green)'; // Ensure success color is applied
+
+        // 6. Reset the form after a short delay
+        setTimeout(() => {
+            feedbackForm.reset();
+            // Optional: Hide status message after successful reset
+            setTimeout(() => {
+                feedbackStatus.style.opacity = '0';
+            }, 3000); 
+        }, 500);
+    });
 });
