@@ -1,0 +1,122 @@
+:root{
+  --dark-purple: #1A0033;
+  --medium-purple: #4D1A7F;
+  --light-purple: #A66CFF;
+  --accent-glow: #F3E8FF;
+  --text-color: #E0E0E0;
+  --muted-text: #cfc6de;
+  --error-red: #ff4d4d;
+  --success-green: #38c172;
+  --shadow: 0 4px 12px rgba(0,0,0,0.5);
+  --radius: 12px;
+  --max-width: 1200px;
+  --container-padding: 5%;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+
+body{
+  font-family: 'Poppins', 'Arial', sans-serif;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  color:var(--text-color);
+  background: linear-gradient(135deg,#0d001a,var(--dark-purple));
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+header{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:15px var(--container-padding);
+  background:var(--dark-purple);
+  box-shadow:0 2px 10px rgba(0,0,0,0.35);
+  position:relative;
+  z-index:100;
+}
+
+header h1{
+  font-size:1.6rem;
+  font-weight:800;
+  color:var(--light-purple);
+  letter-spacing:1px;
+  
+}
+
+/* Basic links */
+a{color:var(--light-purple);text-decoration:none;transition:color .2s}
+a:hover{color: var(--dark-purple)}
+
+/* Simple container helper */
+.container{max-width:var(--max-width);margin:0 auto;padding:0 var(--container-padding)}
+
+
+
+
+/* ===== Login / Signup centering + form styles ===== */
+
+#login, #signup {
+    width: 100%;
+    max-width: 520px;
+    margin: 2.5rem auto;
+    padding: 1.25rem;
+    box-sizing: border-box;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+}
+
+#login h2, #signup h2 {
+    color: var(--dark-purple);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+#login form, #signup form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+#login label, #signup label {
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+#login input, #signup input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--dark-purple);
+    border-width: 2px;
+    background: #f9f9f9;
+    color: #333;
+}
+
+#login button, #signup button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background: var(--medium-purple);
+    color: #fff;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: 1rem;
+    transition: all .12s ease;
+}
+#login button:hover, #signup button:hover {
+    background: #241542;
+}
+#login p, #signup p{
+    text-align: center;
+    color: #666;
+    margin-top: 1rem;
+}
+
+/* ===== end login/signup styles ===== */
